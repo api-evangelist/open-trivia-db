@@ -1,10 +1,9 @@
 aid: open-trivia-db
 name: Open Trivia DB
 description: >-
-  The Open Trivia Database provides a completely free JSON API for use in
-  programming projects. Use of this API does not require a API Key, just
-  generate the URL below use it in your own application to retrieve trivia
-  questions. 
+  The Open Trivia Database provides a completely free JSON API for use in programming
+  projects. Use of this API does not require a API Key, just generate the URL below
+  use it in your own application to retrieve trivia questions.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -20,10 +19,9 @@ apis:
   - aid: open-trivia-db:open-trivia-db
     name: Open Trivia DB
     description: >-
-      The Open Trivia Database provides a completely free JSON API for use in
-      programming projects. Use of this API does not require a API Key, just
-      generate the URL below use it in your own application to retrieve trivia
-      questions. 
+      The Open Trivia Database provides a completely free JSON API for use in programming
+      projects. Use of this API does not require a API Key, just generate the URL
+      below use it in your own application to retrieve trivia questions.
     humanURL: ' https://opentdb.com/api_config.php'
     tags:
       - API

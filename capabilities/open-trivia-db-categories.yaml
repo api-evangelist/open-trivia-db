@@ -1,0 +1,141 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Open Trivia DB API — Categories
+  description: 'Open Trivia DB API — Categories. 3 operations. Lead operation: List trivia categories. Self-contained Naftiko
+    capability covering one Open Trivia Db business surface.'
+  tags:
+  - Open Trivia Db
+  - Categories
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPEN_TRIVIA_DB_API_KEY: OPEN_TRIVIA_DB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: open-trivia-db-categories
+    baseUri: https://opentdb.com
+    description: Open Trivia DB API — Categories business capability. Self-contained, no shared references.
+    resources:
+    - name: api_category.php
+      path: /api_category.php
+      operations:
+      - name: getcategories
+        method: GET
+        description: List trivia categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api_count.php
+      path: /api_count.php
+      operations:
+      - name: getcategorycount
+        method: GET
+        description: Question count for category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: category
+          in: query
+          type: integer
+          description: Category ID.
+          required: true
+    - name: api_count_global.php
+      path: /api_count_global.php
+      operations:
+      - name: getglobalcount
+        method: GET
+        description: Global question counts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: open-trivia-db-categories-rest
+    port: 8080
+    description: REST adapter for Open Trivia DB API — Categories. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api-category-php
+      name: api-category-php
+      description: REST surface for api_category.php.
+      operations:
+      - method: GET
+        name: getcategories
+        description: List trivia categories
+        call: open-trivia-db-categories.getcategories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api-count-php
+      name: api-count-php
+      description: REST surface for api_count.php.
+      operations:
+      - method: GET
+        name: getcategorycount
+        description: Question count for category
+        call: open-trivia-db-categories.getcategorycount
+        with:
+          category: rest.category
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api-count-global-php
+      name: api-count-global-php
+      description: REST surface for api_count_global.php.
+      operations:
+      - method: GET
+        name: getglobalcount
+        description: Global question counts
+        call: open-trivia-db-categories.getglobalcount
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: open-trivia-db-categories-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Open Trivia DB API — Categories. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-trivia-categories
+      description: List trivia categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: open-trivia-db-categories.getcategories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: question-count-category
+      description: Question count for category
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: open-trivia-db-categories.getcategorycount
+      with:
+        category: tools.category
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: global-question-counts
+      description: Global question counts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: open-trivia-db-categories.getglobalcount
+      outputParameters:
+      - type: object
+        mapping: $.

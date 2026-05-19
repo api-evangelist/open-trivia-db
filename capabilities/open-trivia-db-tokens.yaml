@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Open Trivia DB API — Tokens
+  description: 'Open Trivia DB API — Tokens. 1 operations. Lead operation: Manage session tokens. Self-contained Naftiko capability
+    covering one Open Trivia Db business surface.'
+  tags:
+  - Open Trivia Db
+  - Tokens
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPEN_TRIVIA_DB_API_KEY: OPEN_TRIVIA_DB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: open-trivia-db-tokens
+    baseUri: https://opentdb.com
+    description: Open Trivia DB API — Tokens business capability. Self-contained, no shared references.
+    resources:
+    - name: api_token.php
+      path: /api_token.php
+      operations:
+      - name: managetoken
+        method: GET
+        description: Manage session tokens
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: command
+          in: query
+          type: string
+          description: Token operation.
+          required: true
+        - name: token
+          in: query
+          type: string
+          description: Existing token (required when command is reset).
+  exposes:
+  - type: rest
+    namespace: open-trivia-db-tokens-rest
+    port: 8080
+    description: REST adapter for Open Trivia DB API — Tokens. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api-token-php
+      name: api-token-php
+      description: REST surface for api_token.php.
+      operations:
+      - method: GET
+        name: managetoken
+        description: Manage session tokens
+        call: open-trivia-db-tokens.managetoken
+        with:
+          command: rest.command
+          token: rest.token
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: open-trivia-db-tokens-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Open Trivia DB API — Tokens. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: manage-session-tokens
+      description: Manage session tokens
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: open-trivia-db-tokens.managetoken
+      with:
+        command: tools.command
+        token: tools.token
+      outputParameters:
+      - type: object
+        mapping: $.

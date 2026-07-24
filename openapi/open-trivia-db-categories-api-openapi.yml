@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Open Trivia DB Categories API
+  description: Free JSON API providing trivia questions across multiple categories, difficulties, and types. No API key is required. Supports session tokens to avoid duplicate questions across requests, multiple response encodings, and rate limiting of one request per IP every 5 seconds.
+  version: '1.0'
+  contact:
+    name: Open Trivia DB
+    url: https://opentdb.com
+  license:
+    name: Creative Commons Attribution-ShareAlike 4.0 International
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://opentdb.com
+  description: Open Trivia DB Production
+tags:
+- name: Categories
+  description: Retrieve available trivia categories.
+paths:
+  /api_category.php:
+    get:
+      tags:
+      - Categories
+      summary: List trivia categories
+      description: Returns all available trivia categories with IDs and names.
+      operationId: getCategories
+      responses:
+        '200':
+          description: List of categories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesResponse'
+  /api_count.php:
+    get:
+      tags:
+      - Categories
+      summary: Question count for category
+      description: Returns the total and remaining question counts for a category.
+      operationId: getCategoryCount
+      parameters:
+      - name: category
+        in: query
+        required: true
+        description: Category ID.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Category question count.
+  /api_count_global.php:
+    get:
+      tags:
+      - Categories
+      summary: Global question counts
+      description: Returns global question counts across all categories.
+      operationId: getGlobalCount
+      responses:
+        '200':
+          description: Global counts response.
+components:
+  schemas:
+    CategoriesResponse:
+      type: object
+      properties:
+        trivia_categories:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+externalDocs:
+  description: Open Trivia DB API Documentation
+  url: https://opentdb.com/api_config.php

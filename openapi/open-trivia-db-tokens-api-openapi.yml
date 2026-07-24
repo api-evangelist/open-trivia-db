@@ -1,0 +1,46 @@
+openapi: 3.1.0
+info:
+  title: Open Trivia DB Categories Tokens API
+  description: Free JSON API providing trivia questions across multiple categories, difficulties, and types. No API key is required. Supports session tokens to avoid duplicate questions across requests, multiple response encodings, and rate limiting of one request per IP every 5 seconds.
+  version: '1.0'
+  contact:
+    name: Open Trivia DB
+    url: https://opentdb.com
+  license:
+    name: Creative Commons Attribution-ShareAlike 4.0 International
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://opentdb.com
+  description: Open Trivia DB Production
+tags:
+- name: Tokens
+  description: Manage session tokens to track served questions.
+paths:
+  /api_token.php:
+    get:
+      tags:
+      - Tokens
+      summary: Manage session tokens
+      description: Request a new session token, reset an existing one, or check token status. Tokens prevent duplicate questions across requests for 6 hours of inactivity.
+      operationId: manageToken
+      parameters:
+      - name: command
+        in: query
+        required: true
+        description: Token operation.
+        schema:
+          type: string
+          enum:
+          - request
+          - reset
+      - name: token
+        in: query
+        description: Existing token (required when command is reset).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Token response.
+externalDocs:
+  description: Open Trivia DB API Documentation
+  url: https://opentdb.com/api_config.php

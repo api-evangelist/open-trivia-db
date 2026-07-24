@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: Open Trivia DB Categories Questions API
+  description: Free JSON API providing trivia questions across multiple categories, difficulties, and types. No API key is required. Supports session tokens to avoid duplicate questions across requests, multiple response encodings, and rate limiting of one request per IP every 5 seconds.
+  version: '1.0'
+  contact:
+    name: Open Trivia DB
+    url: https://opentdb.com
+  license:
+    name: Creative Commons Attribution-ShareAlike 4.0 International
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+servers:
+- url: https://opentdb.com
+  description: Open Trivia DB Production
+tags:
+- name: Questions
+  description: Retrieve trivia questions.
+paths:
+  /api.php:
+    get:
+      tags:
+      - Questions
+      summary: Retrieve trivia questions
+      description: Returns a list of trivia questions filtered by amount, category, difficulty, type, and encoding. Up to 50 questions per request.
+      operationId: getQuestions
+      parameters:
+      - name: amount
+        in: query
+        required: true
+        description: Number of questions to return (1-50).
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+      - name: category
+        in: query
+        description: Category ID to filter by. Omit for any category.
+        schema:
+          type: integer
+      - name: difficulty
+        in: query
+        description: Question difficulty.
+        schema:
+          type: string
+          enum:
+          - easy
+          - medium
+          - hard
+      - name: type
+        in: query
+        description: Question type.
+        schema:
+          type: string
+          enum:
+          - multiple
+          - boolean
+      - name: encode
+        in: query
+        description: Response encoding format.
+        schema:
+          type: string
+          enum:
+          - url3986
+          - base64
+      - name: token
+        in: query
+        description: Session token to avoid duplicate questions.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trivia questions response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuestionsResponse'
+components:
+  schemas:
+    Question:
+      type: object
+      properties:
+        category:
+          type: string
+        type:
+          type: string
+          enum:
+          - multiple
+          - boolean
+        difficulty:
+          type: string
+          enum:
+          - easy
+          - medium
+          - hard
+        question:
+          type: string
+        correct_answer:
+          type: string
+        incorrect_answers:
+          type: array
+          items:
+            type: string
+    QuestionsResponse:
+      type: object
+      properties:
+        response_code:
+          type: integer
+          description: 0 = Success, 1 = No Results, 2 = Invalid Parameter, 3 = Token Not Found, 4 = Token Empty, 5 = Rate Limit.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+externalDocs:
+  description: Open Trivia DB API Documentation
+  url: https://opentdb.com/api_config.php

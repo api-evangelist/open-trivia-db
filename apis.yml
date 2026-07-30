@@ -5,9 +5,21 @@ description: >-
   require an API key, just generate the URL and use it in your own application to retrieve trivia questions across
   multiple categories, difficulties, and types.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/open-trivia-db.png
 tags:
   - Free
   - Games
@@ -18,21 +30,42 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/open-trivia-db/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: open-trivia-db:open-trivia-db
-    name: Open Trivia DB
-    description: >-
-      Free JSON trivia question API supporting categories, difficulties, question types, encodings, and optional session
-      tokens to avoid duplicate questions across requests.
-    humanURL: https://opentdb.com/api_config.php
-    baseURL: https://opentdb.com
-    tags:
-      - Trivia
-      - Questions
-    properties:
-      - type: Documentation
-        url: https://opentdb.com/api_config.php
-      - type: OpenAPI
-        url: openapi/open-trivia-db-openapi.yml
+- aid: open-trivia-db:open-trivia-db-categories-api
+  name: Open Trivia DB Categories API
+  description: Retrieve available trivia categories.
+  humanURL: https://opentdb.com/api_config.php
+  baseURL: https://opentdb.com
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/open-trivia-db-categories-api-openapi.yml
+  - type: Documentation
+    url: https://opentdb.com/api_config.php
+- aid: open-trivia-db:open-trivia-db-questions-api
+  name: Open Trivia DB Questions API
+  description: Retrieve trivia questions.
+  humanURL: https://opentdb.com/api_config.php
+  baseURL: https://opentdb.com
+  tags:
+  - Questions
+  properties:
+  - type: OpenAPI
+    url: openapi/open-trivia-db-questions-api-openapi.yml
+  - type: Documentation
+    url: https://opentdb.com/api_config.php
+- aid: open-trivia-db:open-trivia-db-tokens-api
+  name: Open Trivia DB Tokens API
+  description: Manage session tokens to track served questions.
+  humanURL: https://opentdb.com/api_config.php
+  baseURL: https://opentdb.com
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/open-trivia-db-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://opentdb.com/api_config.php
 common:
   - type: AgenticAccess
     url: agentic-access/open-trivia-db-agentic-access.yml

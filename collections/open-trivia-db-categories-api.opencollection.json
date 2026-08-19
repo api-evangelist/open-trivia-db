@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open Trivia DB Categories API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List trivia categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opentdb.com/api_category.php"
+          },
+          "docs": "Returns all available trivia categories with IDs and names."
+        },
+        {
+          "info": {
+            "name": "Question count for category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opentdb.com/api_count.php",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Category ID."
+              }
+            ]
+          },
+          "docs": "Returns the total and remaining question counts for a category."
+        },
+        {
+          "info": {
+            "name": "Global question counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opentdb.com/api_count_global.php"
+          },
+          "docs": "Returns global question counts across all categories."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

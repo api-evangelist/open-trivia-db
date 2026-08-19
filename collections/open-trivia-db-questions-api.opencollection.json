@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open Trivia DB Categories Questions API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Questions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve trivia questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://opentdb.com/api.php",
+            "params": [
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "Number of questions to return (1-50)."
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Category ID to filter by. Omit for any category."
+              },
+              {
+                "name": "difficulty",
+                "value": "",
+                "type": "query",
+                "description": "Question difficulty."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Question type."
+              },
+              {
+                "name": "encode",
+                "value": "",
+                "type": "query",
+                "description": "Response encoding format."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Session token to avoid duplicate questions."
+              }
+            ]
+          },
+          "docs": "Returns a list of trivia questions filtered by amount, category, difficulty, type, and encoding. Up to 50 questions per request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

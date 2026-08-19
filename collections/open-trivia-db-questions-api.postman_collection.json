@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "4eebe0fc-733b-45f0-ab3c-9e611d42381b",
+      "name": "Questions",
+      "description": {
+        "content": "Retrieve trivia questions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d862c3ae-a9cc-4874-b959-26fd83875456",
+          "name": "Retrieve trivia questions",
+          "request": {
+            "name": "Retrieve trivia questions",
+            "description": {
+              "content": "Returns a list of trivia questions filtered by amount, category, difficulty, type, and encoding. Up to 50 questions per request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api.php"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "(Required) Number of questions to return (1-50)."
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<integer>",
+                  "description": "Category ID to filter by. Omit for any category."
+                },
+                {
+                  "disabled": false,
+                  "key": "difficulty",
+                  "value": "<string>",
+                  "description": "Question difficulty."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Question type."
+                },
+                {
+                  "disabled": false,
+                  "key": "encode",
+                  "value": "<string>",
+                  "description": "Response encoding format."
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Session token to avoid duplicate questions."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b6d4958-3af3-4f53-b208-4a8fbbe89e14",
+              "name": "Trivia questions response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api.php"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "difficulty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response_code\": 3451,\n  \"results\": [\n    {\n      \"category\": \"string\",\n      \"type\": \"boolean\",\n      \"difficulty\": \"hard\",\n      \"question\": \"string\",\n      \"correct_answer\": \"string\",\n      \"incorrect_answers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"category\": \"string\",\n      \"type\": \"boolean\",\n      \"difficulty\": \"easy\",\n      \"question\": \"string\",\n      \"correct_answer\": \"string\",\n      \"incorrect_answers\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://opentdb.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4d85ad7b-27f1-498c-829a-f325f23ddc5d",
+    "name": "Open Trivia DB Categories Questions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free JSON API providing trivia questions across multiple categories, difficulties, and types. No API key is required. Supports session tokens to avoid duplicate questions across requests, multiple response encodings, and rate limiting of one request per IP every 5 seconds.\n\nContact Support:\n Name: Open Trivia DB",
+      "type": "text/plain"
+    }
+  }
+}

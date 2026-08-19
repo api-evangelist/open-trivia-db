@@ -1,0 +1,230 @@
+{
+  "item": [
+    {
+      "id": "2a8e513f-812c-4c08-b066-eb3a3930970f",
+      "name": "Categories",
+      "description": {
+        "content": "Retrieve available trivia categories.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2cd7b4c-6f63-46e4-86d9-504e0d85e52b",
+          "name": "List trivia categories",
+          "request": {
+            "name": "List trivia categories",
+            "description": {
+              "content": "Returns all available trivia categories with IDs and names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api_category.php"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4bc1678-f279-4424-9d78-faa1f42352db",
+              "name": "List of categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api_category.php"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trivia_categories\": [\n    {\n      \"id\": 4259,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 9340,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de03e884-7b61-4b42-8d9d-c603006fddd2",
+          "name": "Question count for category",
+          "request": {
+            "name": "Question count for category",
+            "description": {
+              "content": "Returns the total and remaining question counts for a category.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api_count.php"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<integer>",
+                  "description": "(Required) Category ID."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3819a67-76fd-4ca8-9fac-86fad752341b",
+              "name": "Category question count.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api_count.php"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f548b97-6313-4076-97e9-c2c1d4ea81ea",
+          "name": "Global question counts",
+          "request": {
+            "name": "Global question counts",
+            "description": {
+              "content": "Returns global question counts across all categories.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api_count_global.php"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0518193b-52f0-430d-86ea-018fd5ab6433",
+              "name": "Global counts response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api_count_global.php"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://opentdb.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "90c7a927-7c5d-4a9c-9e60-6f3da37cede8",
+    "name": "Open Trivia DB Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Free JSON API providing trivia questions across multiple categories, difficulties, and types. No API key is required. Supports session tokens to avoid duplicate questions across requests, multiple response encodings, and rate limiting of one request per IP every 5 seconds.\n\nContact Support:\n Name: Open Trivia DB",
+      "type": "text/plain"
+    }
+  }
+}

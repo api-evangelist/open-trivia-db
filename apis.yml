@@ -89,3 +89,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: open-trivia
+x-relationship: product

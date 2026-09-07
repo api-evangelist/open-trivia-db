@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Open Trivia DB Categories Questions API
   description: Free JSON API providing trivia questions across multiple categories, difficulties, and types. No API key is required. Supports session tokens to avoid duplicate questions across requests, multiple response encodings, and rate limiting of one request per IP every 5 seconds.
@@ -76,6 +76,16 @@ paths:
                 $ref: '#/components/schemas/QuestionsResponse'
 components:
   schemas:
+    QuestionsResponse:
+      type: object
+      properties:
+        response_code:
+          type: integer
+          description: 0 = Success, 1 = No Results, 2 = Invalid Parameter, 3 = Token Not Found, 4 = Token Empty, 5 = Rate Limit.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
     Question:
       type: object
       properties:
@@ -100,16 +110,6 @@ components:
           type: array
           items:
             type: string
-    QuestionsResponse:
-      type: object
-      properties:
-        response_code:
-          type: integer
-          description: 0 = Success, 1 = No Results, 2 = Invalid Parameter, 3 = Token Not Found, 4 = Token Empty, 5 = Rate Limit.
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Question'
 externalDocs:
   description: Open Trivia DB API Documentation
   url: https://opentdb.com/api_config.php

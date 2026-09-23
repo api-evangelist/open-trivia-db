@@ -1,9 +1,7 @@
 {
   "provider": "open-trivia-db",
   "sources": [
-    "open-trivia-db-categories-api-openapi.yml",
-    "open-trivia-db-questions-api-openapi.yml",
-    "open-trivia-db-tokens-api-openapi.yml"
+    "_original/open-trivia-db-openapi.yml"
   ],
   "outputs": [
     "open-trivia-db-categories-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "open-trivia-db-categories-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "open-trivia-db-questions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "open-trivia-db-tokens-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "open-trivia-db-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "open-trivia-db-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "open-trivia-db-questions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "open-trivia-db-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

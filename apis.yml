@@ -45,7 +45,6 @@ apis:
   name: Open Trivia DB Categories API
   description: Retrieve available trivia categories.
   humanURL: https://opentdb.com/api_config.php
-  baseURL: https://opentdb.com
   tags:
   - Categories
   properties:
@@ -57,7 +56,6 @@ apis:
   name: Open Trivia DB Questions API
   description: Retrieve trivia questions.
   humanURL: https://opentdb.com/api_config.php
-  baseURL: https://opentdb.com
   tags:
   - Questions
   properties:
@@ -69,7 +67,6 @@ apis:
   name: Open Trivia DB Tokens API
   description: Manage session tokens to track served questions.
   humanURL: https://opentdb.com/api_config.php
-  baseURL: https://opentdb.com
   tags:
   - Tokens
   properties:

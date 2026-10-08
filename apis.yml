@@ -75,6 +75,12 @@ apis:
   - type: Documentation
     url: https://opentdb.com/api_config.php
 common:
+  - type: Plans
+    url: plans/open-trivia-db-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/open-trivia-db-rate-limits.yml
+  - type: FinOps
+    url: finops/open-trivia-db-finops.yml
   - type: AgenticAccess
     url: agentic-access/open-trivia-db-agentic-access.yml
   - type: DomainSecurity

@@ -1,4 +1,4 @@
-# Open Trivia DB (open-trivia-db)
+# Open Trivia DB
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,53 +66,117 @@
 
 The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require an API key, just generate the URL and use it in your own application to retrieve trivia questions across multiple categories, difficulties, and types.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/open-trivia-db/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/open-trivia-db/refs/heads/main/apis.yml)
+**Areas:** Free · Games · Questions · Trivia
 
-## Scope
+## Open Trivia DB on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Open Trivia DB is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/open-trivia-db/](https://apis.io/providers/open-trivia-db/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Free
-- Games
-- Questions
-- Trivia
+- [Open Trivia DB Categories API](https://apis.io/apis/open-trivia-db/open-trivia-db-categories-api/) — Retrieve available trivia categories.
+- [Open Trivia DB Questions API](https://apis.io/apis/open-trivia-db/open-trivia-db-questions-api/) — Retrieve trivia questions.
+- [Open Trivia DB Tokens API](https://apis.io/apis/open-trivia-db/open-trivia-db-tokens-api/) — Manage session tokens to track served questions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-12
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Open Trivia DB
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Free JSON trivia question API supporting categories, difficulties, question types, encodings, and optional session tokens to avoid duplicate questions across requests.
+- [Open Trivia Db Agentic Access](https://apis.io/agentic-access/open-trivia-db/open-trivia-db-agentic-access/)
 
-- **Human URL:** [https://opentdb.com/api_config.php](https://opentdb.com/api_config.php)
-- **Base URL:** `https://opentdb.com`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Trivia
-- Questions
+- [Open Trivia DB API](https://apis.io/collections/open-trivia-db/open-open-trivia-db/)
+- [Open Trivia DB Categories API](https://apis.io/collections/open-trivia-db/open-open-trivia-db-categories-api/)
+- [Open Trivia DB Categories Questions API](https://apis.io/collections/open-trivia-db/open-open-trivia-db-questions-api/)
+- [Open Trivia DB Categories Tokens API](https://apis.io/collections/open-trivia-db/open-open-trivia-db-tokens-api/)
 
-#### Properties
+#### Security (1)
 
-- [Documentation](https://opentdb.com/api_config.php)
-- [OpenAPI](openapi/open-trivia-db-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/open-trivia-db.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/open-trivia-db.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Open Trivia Db Domain Security](https://apis.io/security/open-trivia-db/open-trivia-db-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Open Trivia Db Plans Pricing](https://apis.io/plans/open-trivia-db/open-trivia-db-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Open Trivia Db Rate Limits](https://apis.io/rate-limits/open-trivia-db/open-trivia-db-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Open Trivia Db Finops](https://apis.io/finops/open-trivia-db/open-trivia-db-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://opentdb.com)
 - [Documentation](https://opentdb.com/api_config.php)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 19.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 44.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/open-trivia-db/](https://apis.io/providers/open-trivia-db/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Open Trivia DB: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/open-trivia-db/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
